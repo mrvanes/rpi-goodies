@@ -4,7 +4,7 @@ import time
 import subprocess
 
 ScreenTimeout = 60
-MonitorTimeout = 600
+MonitorTimeout = 1800
 
 Counter = MonitorTimeout
 Screen = True
@@ -30,7 +30,6 @@ def reset_counter(channel):
 GPIO.add_event_detect(GPIO_PIR, GPIO.RISING, callback=reset_counter)                                                                                                              
 
 # Disable DPMS, only turn monitor on/off
-#subprocess.call('/usr/bin/xset -dpms', shell=True)
 subprocess.call('/usr/bin/xset dpms force on', shell=True)
 
 try:
