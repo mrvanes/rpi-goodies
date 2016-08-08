@@ -15,6 +15,6 @@ while True:
   select([dev], [], [])
   for event in dev.read():
     if event.type == ecodes.EV_ABS and event.code == ecodes.ABS_MT_POSITION_Y:
-      #print(dc)
       dc = 100*(320-event.value)/320
+      #print(dc)
       wp.pwmWrite(18,dc)
